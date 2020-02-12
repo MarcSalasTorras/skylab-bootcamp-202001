@@ -266,7 +266,6 @@ class App extends Component {
         let position = 0
         const userDataFav = this.state.userData.fav
         const recursive = () => {
-            debugger
             if (resultsFav.length !== userDataFav.length) {
                 searchBeer(token, userDataFav[position].toString(), "?ids=", (error, results) => {
                     if (error)
