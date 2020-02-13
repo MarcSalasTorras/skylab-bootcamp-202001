@@ -145,10 +145,10 @@ class App extends Component {
                     })
                 } else {
                     this.setState({ beer: undefined, resultsBeers: results, fav, param: 'abv_gt', favList: undefined })
-
                 }
             })
         } catch (error) {
+            address.search = { q: query }
             this.__handleError__(error)
         }
     }
@@ -282,8 +282,9 @@ class App extends Component {
                     retrieveUser(token, (error, userData) => {
                         if (error) return this.__handleError__(error)
                         else this.setState({ fav: userData.fav, favList: undefined })
-                        if (favList)this.handleFavList()
-                    })}
+                    })
+                    if (favList) this.handleFavList()
+                }
                 if (error)
                     return this.__handleError__(error)
             })
@@ -329,7 +330,7 @@ class App extends Component {
     }
 
     render() {
-        const { props: { title }, state: { view, error, menu, query, username, resultsBeers, beer, fav, userData }, handleLogin, handleGoToRegister, handleRegister, handleGoToLogin, handleMenu, handleFav, handleSearch, handleDetails, handleAle, handleLager, handleStout, handleIpa, handleLogout, handleFavList } = this
+        const { props: { title }, state: { view, error, menu, query, username, resultsBeers, beer, fav,  userData }, handleLogin, handleGoToRegister, handleRegister, handleGoToLogin, handleMenu, handleFav, handleSearch, handleDetails, handleAle, handleLager, handleStout, handleIpa, handleLogout, handleFavList } = this
 
         return <main>
             {view === "login" && <Login onSubmit={handleLogin} onToRegister={handleGoToRegister} error={error} />}
