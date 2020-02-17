@@ -1,3 +1,5 @@
+if (typeof require !== 'undefined') var Murray = require('./murray')
+
 describe('murray.prototype.splice',function(){
     it('should return a Murray with the deleted elements', function(){
         var murray = new Murray(1,2,3,4,5);

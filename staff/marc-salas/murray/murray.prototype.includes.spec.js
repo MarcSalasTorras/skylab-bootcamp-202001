@@ -1,3 +1,5 @@
+if (typeof require !== 'undefined') var Murray = require('./murray')
+
 describe('murray.protetyp.includes.js', function(){
     it('should return a true or false value', function(){
         var murray = new Murray(1,2,3);

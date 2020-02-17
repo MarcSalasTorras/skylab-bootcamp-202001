@@ -1,3 +1,5 @@
+if (typeof require !== 'undefined') var Murray = require('./murray')
+
 describe('murray.prototype.find',function(){
     
     it('should return the first value that pass the condition',function(){

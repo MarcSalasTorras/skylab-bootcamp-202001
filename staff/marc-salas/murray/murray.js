@@ -1,23 +1,5 @@
 'use strict';
 
-// function Murray() {
-//     var _arguments = arguments;
-
-//     var initializeWithLength = (function () {
-//         if (_arguments.length === 1 && typeof _arguments[0] === 'number')
-//             if (Number.isInteger(_arguments[0]))
-//                 return true;
-//             else throw new RangeError('Invalid murray length')
-
-//         return false;
-//     })();
-
-//     this.length = initializeWithLength ? arguments[0] : arguments.length;
-
-//     if (!initializeWithLength)
-//         for (var i = 0; i < arguments.length; i++) this[i] = arguments[i];
-// }
-
 function Murray() {
     if (arguments.length === 1 && typeof arguments[0] === 'number') {
         if (Number.isInteger(arguments[0])) {
@@ -183,3 +165,6 @@ Murray.prototype.includes = function(value,startIndex){
     }
     return false;
 }
+
+if( typeof module !== 'undefined' ) module.exports = Murray
+
