@@ -1,7 +1,8 @@
 const fs = require('fs')
 
 function log(level, message) {
-    fs.writeFile('./server.log',`${level} ${message}`, (error)=>{
+    //let writeStream = fs.createWriteStream('./server.log')
+    fs.writeFile('./server.log',`${level} ${message}\n\n`,{flag : 'a'},  (error)=>{
         if(error) console.log(error)
         console.log('file written')
     })
