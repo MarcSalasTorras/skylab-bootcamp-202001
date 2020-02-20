@@ -4,10 +4,20 @@ const logger = require('./utils/logger')
 const loggerMidWare = require('./utils/logger-mid-ware')
 const authenticate = require('./logic/authenticate')
 const retriveUser = require('./logic/retrive-user')
-const parseMidWare = require('./utils/parser-mid-ware')
+const bodyParser = require('body-parser')
 const register = require('./logic/register')
+const Home = require('./components/home')
+const App = require('./components/app')
+const Login = require('./components/login')
+const Register = require('./components/register')
+const Landing = require('./components/landing')
+const cookieParserMidWare = require('./utils/cookie-parser-mid-ware')
+const sessions = require('./data/sessions')
+
+const urlencodedBodyParser = bodyParser.urlencoded({ extended: false })
 
 logger.level = logger.DEBUG
+
 logger.path = path.join('./server.log')
 
 logger.debug('setting up server')
@@ -17,58 +27,74 @@ const app = express()
 const { argv: [, , port = 8080] } = process
 
 app.use(loggerMidWare)
+app.use(cookieParserMidWare)
 
-app.use('/register', parseMidWare)
+app.use(urlencodedBodyParser)
 
-app.use('/register', (req, res, next) => {
+
+app.get('/', (req, res)=>{
+  const {cookies:{username}} = req
+
+  if(sessions.includes(username)) return res.redirect(`/home/${username}`)
   
-  req.on('end', () =>{
-    try{
-      const {name, surname, username, password} = req.body
-      console.dir(req.body)
-      register(name, surname, username, password)
-      res.redirect(`/index.html`)
-    } catch(error) {
-        console.log(error)
-        res.send(`<h1>WRONG CREDENTIALS</h1> <a href="./register.html">back to ligin</a>`) 
-    }
-  })  
+  res.send(App({title: 'Landing', body: Landing()}))
 })
 
-app.use('/authenticate', parseMidWare)
+app.get('/register', (req, res) =>{
+  const {cookies:{username}} = req
 
-app.use('/authenticate', (req, res, next) => {
+  if(sessions.includes(username)) return res.redirect(`/home/${username}`)
+
+  res.send(App({title: 'Register', body: Register()}))
+})
+
+app.get('/login', (req, res) => {
+  const {cookies:{username}} = req
+
+  if (sessions.includes(username)) return res.redirect(`/home/${username}`)
   
-  req.on('end', () =>{
+  res.send(App({title: 'Login', body: Login()}))
+})
+app.get('/home/:username', (req, res) => {
+  const {params : {username}} = req
+  const {name} = retriveUser(username)
+  res.send(App({title: 'Home', body: Home({name})}))
+})
+
+app.post('/register', (req, res, next) => {
+
     try {
-      console.dir(req.body)
-      authenticate(req.body.username, req.body.password)
-      const userData = retriveUser(req.body.username)
-      res.send(`<h1>${userData.name}</h1><a href="/index.html"> logout </a>`)
-    } catch (error) {
+      const { name, surname, username, password } = req.body
+      register(name, surname, username, password)
+      res.redirect('/login')
+    } catch ({message}) {
+      res.send(App({title: 'Register', body: Register({error: message})}))
+    }
+})
+
+
+app.post('/login', (req, res, next) => {
   
-      res.send(`<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web-Server</title>
-</head>
-<body>
-    <form action="/authenticate" method="post">
-        <label for="username">username</label>
-        <input type="text" name="username">
-        <label for="password">password</label>
-        <input type="password" name="password">
-        <button type="submit">login</button>
-        <a href="/register.html">to register</a>
-        <p>wrong credentials</p>
-    </form>
-</body>
-</html>`)
+  const {username, password} = req.body
+    
+  try {
+      
+      authenticate(username, password)
+      
+      sessions.push(username)
+
+      const {cookies:{username: _username}} = req
+      
+      username !== _username && res.setHeader('set-cookie', `username=${username}`)
+      
+      res.redirect(`/home/${username}`)
+    
+    } catch ({message}) {
+      
+      res.send(App({title: 'Login', body: Login({error: message})}))
+    
     }
 
-  })
 
 
 })
