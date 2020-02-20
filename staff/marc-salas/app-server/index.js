@@ -32,10 +32,7 @@ app.use('/register', (req, res, next) => {
         console.log(error)
         res.send(`<h1>WRONG CREDENTIALS</h1> <a href="./register.html">back to ligin</a>`) 
     }
-
-
-  })
-  
+  })  
 })
 
 app.use('/authenticate', parseMidWare)
