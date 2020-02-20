@@ -4,6 +4,8 @@ const logger = require('./utils/logger')
 const loggerMidWare = require('./utils/logger-mid-ware')
 const authenticate = require('./logic/authenticate')
 const retriveUser = require('./logic/retrive-user')
+const parseMidWare = require('./utils/parser-mid-ware')
+const register = require('./logic/register')
 
 logger.level = logger.DEBUG
 logger.path = path.join('./server.log')
@@ -16,27 +18,61 @@ const { argv: [, , port = 8080] } = process
 
 app.use(loggerMidWare)
 
-app.post('/authenticate', (req, res) => {
-  let body = ''
+app.use('/register', parseMidWare)
 
-  req.on('data', chunk =>{
-    body += chunk
-
-  })
+app.use('/register', (req, res, next) => {
   
-  req.on('end', ()=>{
-    let username = body.split('&')[0].split('=')[1]
-    let password = body.split('&')[1].split('=')[1]
-  
+  req.on('end', () =>{
     try{
-      authenticate(username, password)
-      const userData = retriveUser(username)
-      res.send(`<h1>${userData.name}</h1>`)
-    } catch(error){
-      
-      if(error) console.log(error)
+      const {name, surname, username, password} = req.body
+      console.dir(req.body)
+      register(name, surname, username, password)
+      res.redirect(`/index.html`)
+    } catch(error) {
+        console.log(error)
+        res.send(`<h1>WRONG CREDENTIALS</h1> <a href="./register.html">back to ligin</a>`) 
     }
+
+
   })
+  
+})
+
+app.use('/authenticate', parseMidWare)
+
+app.use('/authenticate', (req, res, next) => {
+  
+  req.on('end', () =>{
+    try {
+      console.dir(req.body)
+      authenticate(req.body.username, req.body.password)
+      const userData = retriveUser(req.body.username)
+      res.send(`<h1>${userData.name}</h1><a href="/index.html"> logout </a>`)
+    } catch (error) {
+  
+      res.send(`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web-Server</title>
+</head>
+<body>
+    <form action="/authenticate" method="post">
+        <label for="username">username</label>
+        <input type="text" name="username">
+        <label for="password">password</label>
+        <input type="password" name="password">
+        <button type="submit">login</button>
+        <a href="/register.html">to register</a>
+        <p>wrong credentials</p>
+    </form>
+</body>
+</html>`)
+    }
+
+  })
+
 
 })
 
