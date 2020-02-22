@@ -1,5 +1,7 @@
+const CookieMessage = require('./cookie-message')
+
 function App(props) {
-    const { title, body } = props
+    const { title, body, answer = undefined } = props
     return `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -9,6 +11,7 @@ function App(props) {
     </head>
     <body>
         ${body}
+        ${ !answer ? CookieMessage() : '' }
     </body>
     </html>   
     `

@@ -1,8 +1,7 @@
 function Login(props = {}) {
-    const { error } = props
+    const { error, answer = undefined } = props
     console.log(error)
     return `<section class='login'>
-<body>
     <form action="/login" method="post">
         <label for="username">username</label>
         <input type="text" name="username">
