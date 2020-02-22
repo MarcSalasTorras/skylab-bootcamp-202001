@@ -1,16 +1,14 @@
-function Login(props = {}) {
-    const { error, answer = undefined } = props
-    console.log(error)
-    return `<section class='login'>
-    <form action="/login" method="post">
-        <label for="username">username</label>
-        <input type="text" name="username">
-        <label for="password">password</label>   
-        <input type="password" name="password">
-        <button type="submfit">login</button>
-        <a href="/register">to register</a>
-        ${ error ? `<p class ="login__error">${error}</p>` : `` }
-        </form>
-        </section> `
+module.exports = function (props = {}) {
+    const { error } = props
+
+    return `<section class="login">
+    <h1>Login</h1>
+    <form action="/login" method="POST">
+        <input type="text" name="username" placeholder="username">
+        <input type="password" name="password" placeholder="password">
+        <button>Send</button>
+        ${error ? `<p class="login__error">${error}</p>` : ''}
+    </form>
+    <a href="/register">Register</a>
+</section>`
 }
-module.exports = Login
