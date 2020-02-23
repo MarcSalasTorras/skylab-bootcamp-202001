@@ -1,8 +1,7 @@
 const { call } = require('../utils')
 const atob = require('atob')
 
-
-module.exports = function (token, callback) {
+module.exports = function retrieveUser(token, callback) {
     if (typeof token !== 'string') throw new TypeError(`token ${token} is not a string`)
 
     const [header, payload, signature] = token.split('.')
@@ -18,7 +17,6 @@ module.exports = function (token, callback) {
         method: 'GET',
         headers: { 'Authorization': `Bearer ${token}` }
     }, (error, response) => {
-        debugger
         if (error) return callback(error)
 
         const data = JSON.parse(response.content), { error: _error } = data

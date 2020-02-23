@@ -87,6 +87,7 @@ app.get('/search/:username', (req, res) => {
             const { name } = user
             if (_query) {
                 searchVehicles(token, _query, (error, vehicles) => {
+                    debugger
                     if (error) {
                         return res.send(App({ title: 'Search', body: Search({ name, error: message, fav: user.fav }), session: { acceptCookies, token } }))
                     }
@@ -131,7 +132,7 @@ app.get('/register', ({ session: { acceptCookies } }, res) => {
 app.get('/details/:id', ({ params: { id }, session: { token, acceptCookies, query, username } }, res) => {
     try {
         retrieveVehicle(token, id, (error, vehicle) => {
-            debugger
+        
             if (error) return console.log(error)
             res.send(App({ title: 'Details', body: Details(vehicle, username, query), acceptCookies }))
 
@@ -143,7 +144,7 @@ app.get('/details/:id', ({ params: { id }, session: { token, acceptCookies, quer
 })
 app.post('/toggle-fav/:id', ({ params: { id }, session: { token, acceptCookies, query, username } }, res) => {
     try {
-        debugger
+    
         toggleFavVehicle(token, id, (error) => {
             if(error) return console.log(error)
             return res.redirect(`/search/${username}?query=${query}`)

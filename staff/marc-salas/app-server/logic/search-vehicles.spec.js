@@ -51,17 +51,19 @@ describe('searchVehicles', () => {
         )
 
         it('should get results on matching query but no favs if not previously added', done =>
-            searchVehicles(token, query, (error, results) => {
+            searchVehicles(token, query, (error, vehicles) => {
                 expect(error).toBeUndefined()
 
-                expect(results).toBeDefined()
-                expect(results.length).toBeGreaterThan(0)
+                expect(vehicles).toBeDefined()
+                expect(vehicles.length).toBeGreaterThan(0)
 
-                results.forEach(result => {
-                    expect(typeof result.id).toBe('string')
-                    expect(typeof result.name).toBe('string')
-                    expect(typeof result.thumbnail).toBe('string')
-                    expect(typeof result.price).toBe('number')
+                vehicles.forEach(vehicle => {
+                    expect(typeof vehicle.id).toBe('string')
+                    expect(typeof vehicle.name).toBe('string')
+                    expect(typeof vehicle.thumbnail).toBe('string')
+                    expect(typeof vehicle.price).toBe('number')
+                    expect(typeof vehicle.isFav).toBe('boolean')
+                    expect(vehicle.isFav).toBeFalsy()
                 })
 
                 done()
@@ -103,12 +105,12 @@ describe('searchVehicles', () => {
                 })
             })
 
-            it('should get results on matching query but no favs if not previously added', done => {
-                searchVehicles(token, query, (error, results) => {
+            it('should get results on matching query with favs as previously added', done => {
+                searchVehicles(token, query, (error, vehicles) => {
                     expect(error).toBeUndefined()
 
-                    expect(results).toBeDefined()
-                    expect(results.length).toBeGreaterThan(0)
+                    expect(vehicles).toBeDefined()
+                    expect(vehicles.length).toBeGreaterThan(0)
 
                     call(`https://skylabcoders.herokuapp.com/api/v2/users/`, {
                         method: 'GET',
@@ -127,13 +129,16 @@ describe('searchVehicles', () => {
                         const { favs } = user
 
                         for (const fav of favs)
-                            expect(ids).toContain(fav)
+-                            expect(ids).toContain(fav)
 
-                        results.forEach(result => {
-                            expect(typeof result.id).toBe('string')
-                            expect(typeof result.name).toBe('string')
-                            expect(typeof result.thumbnail).toBe('string')
-                            expect(typeof result.price).toBe('number')
+                        vehicles.forEach(vehicle => {
+                            expect(typeof vehicle.id).toBe('string')
+                            expect(typeof vehicle.name).toBe('string')
+                            expect(typeof vehicle.thumbnail).toBe('string')
+                            expect(typeof vehicle.price).toBe('number')
+                            expect(typeof vehicle.isFav).toBe('boolean')
+
+                            expect(vehicle.isFav).toBe(favs.includes(vehicle.id))
                         })
 
                         done()
@@ -213,79 +218,3 @@ describe('searchVehicles', () => {
         ).toThrowError(TypeError, '[object Object] is not a function')
     })
 })
-
-// describe('searchVehicles', () => {
-
-//     let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZTNjM2NmYzQxMDQ0ZTAwMTU0NDUwY2EiLCJpYXQiOjE1ODEwMTYwODUsImV4cCI6MTU4MTAxOTY4NX0.kMTJu-yC5usghKsHRUSyajaLlhnR2tdJkd_6pa-fBIw"
-    
-//     it('should succeed on matching query', done => {
-//         searchVehicles(token, 'batman', (error, results, userFav) => {
-//             expect(error).toBeUndefined()
-//             expect(results).toBeDefined()
-//             expect(results.length).toBeGreaterThan(0)
-
-//             results.forEach(result => {
-//                 expect(typeof result.id).toBe('string')
-//                 expect(typeof result.name).toBe('string')
-//                 expect(typeof result.thumbnail).toBe('string')
-//                 expect(typeof result.price).toBe('number')
-//             })
-
-//             done()
-//         })
-//     })
-
-//     it('should succeed on non-matching query returning an empty array', done => {
-        
-//         searchVehicles(token, 'asdasdfñlajsfklasldñkf', (error, results, userFav) => {
-//             expect(error).toBeUndefined()
-
-//             expect(results).toBeDefined()
-//             expect(results).toHaveLength(0)
-
-//             done()
-//         })
-//     })
-
-//     it('should fail on non-string query', () => {
-
-//         let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZTNjM2NmYzQxMDQ0ZTAwMTU0NDUwY2EiLCJpYXQiOjE1ODEwMTYwODUsImV4cCI6MTU4MTAxOTY4NX0.kMTJu-yC5usghKsHRUSyajaLlhnR2tdJkd_6pa-fBIw"
-
-//         expect(() => 
-//             searchVehicles(token, undefined, () => {})
-//         ).toThrowError(TypeError, 'undefined is not a string')
-
-//         expect(() => 
-//             searchVehicles(token, 1, () => {})
-//         ).toThrowError(TypeError, '1 is not a string')
-
-//         expect(() => 
-//             searchVehicles(token, true, () => {})
-//         ).toThrowError(TypeError, 'true is not a string')
-
-//         expect(() => 
-//             searchVehicles(token, {}, () => {})
-//         ).toThrowError(TypeError, '[object Object] is not a string')
-//     })
-
-//     it('should fail on non-function callback', () => {
-
-//         let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZTNjM2NmYzQxMDQ0ZTAwMTU0NDUwY2EiLCJpYXQiOjE1ODEwMTYwODUsImV4cCI6MTU4MTAxOTY4NX0.kMTJu-yC5usghKsHRUSyajaLlhnR2tdJkd_6pa-fBIw"
-
-//         expect(() => 
-//             searchVehicles(token, '', undefined)
-//         ).toThrowError(TypeError, 'undefined is not a function')
-
-//         expect(() => 
-//             searchVehicles(token, '', 1)
-//         ).toThrowError(TypeError, '1 is not a function')
-
-//         expect(() => 
-//             searchVehicles(token, '', true)
-//         ).toThrowError(TypeError, 'true is not a function')
-
-//         expect(() => 
-//             searchVehicles(token, '', {})
-//         ).toThrowError(TypeError, '[object Object] is not a function')
-//     })
-// })
