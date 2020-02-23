@@ -1,6 +1,6 @@
 const Results = require('./results')
 module.exports = function Search(props = {}) {
-    const {error, query ="", name, vehicles = undefined} = props
+    const {error, query ="", name, vehicles = undefined, fav} = props
 
     return `<h1> Search</h1> <p> by ${name} </p>
     <form action="/search/${name}" method="GET">
@@ -8,7 +8,7 @@ module.exports = function Search(props = {}) {
         <button>Search</button>
         ${error ? `<p>${error}</p>` : ''}
     </form>
-    ${vehicles? Results(vehicles) : ""}
+    ${vehicles? Results(vehicles, fav) : ""}
     `
 
 }

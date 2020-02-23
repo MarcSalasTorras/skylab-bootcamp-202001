@@ -1,8 +1,17 @@
 module.exports = function Item({ item: { id, name, thumbnail, price, isFav }}) {
     
     return `<li>
+    <form action="/details/${id}" method="GET">
         <h3>${name}</h3>
-        <img src=${thumbnail} />
+        <button>
+        <img src=${thumbnail}/>
+        </button>
         <span>${price} €</span>
+    </form>
+    <form action="/toggle-fav/${id}" method="POST">
+    <button>    
+    ${isFav? `5` : `0`}
+    </button>
+    </form>
     </li>`
 }

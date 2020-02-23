@@ -18,6 +18,7 @@ module.exports = function (token, callback) {
         method: 'GET',
         headers: { 'Authorization': `Bearer ${token}` }
     }, (error, response) => {
+        debugger
         if (error) return callback(error)
 
         const data = JSON.parse(response.content), { error: _error } = data

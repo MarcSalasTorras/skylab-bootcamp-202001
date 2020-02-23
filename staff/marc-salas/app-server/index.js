@@ -1,10 +1,10 @@
 const express = require('express')
 const { logger, loggerMidWare } = require('./utils')
 const path = require('path')
-const { authenticateUser, retrieveUser, registerUser, searchVehicles } = require('./logic')
+const { authenticateUser, retrieveUser, registerUser, searchVehicles, retrieveVehicle, toggleFavVehicle } = require('./logic')
 const bodyParser = require('body-parser')
 const session = require('express-session')
-const { Login, App, Home, Register, Landing, Search } = require('./components')
+const { Login, App, Home, Register, Landing, Search, Details } = require('./components')
 
 const urlencodedBodyParser = bodyParser.urlencoded({ extended: false })
 
@@ -71,14 +71,13 @@ app.post('/login', urlencodedBodyParser, (req, res) => {
 })
 
 app.get('/search/:username', (req, res) => {
-    const { params: { username }, session: { token, acceptCookies }, query} = req
+    const { params: { username }, session: { token, acceptCookies }, query } = req
     const _query = query.query
-    console.log(token)
+    req.session.username = username
     retrieveUser(token, (error, user) => {
         if (error) {
             const { message } = error
             const { session: { acceptCookies } } = req
-
             return res.send(App({ title: 'Login', body: Login({ error: message }), acceptCookies }))
         }
 
@@ -86,15 +85,16 @@ app.get('/search/:username', (req, res) => {
 
         if (username === _username) {
             const { name } = user
-            if (_query){
-                searchVehicles(token, _query, (error, vehicles) =>{
-                    if(error){
-                        return res.send(App({ title: 'Search', body: Search({name, error: message}), session : {acceptCookies, token} }))  
-                    } 
-                    res.send(App({ title: 'Search', body: Search({name, vehicles}), acceptCookies}))      
+            if (_query) {
+                searchVehicles(token, _query, (error, vehicles) => {
+                    if (error) {
+                        return res.send(App({ title: 'Search', body: Search({ name, error: message, fav: user.fav }), session: { acceptCookies, token } }))
+                    }
+                    req.session.query = _query
+                    res.send(App({ title: 'Search', body: Search({ name, vehicles }), acceptCookies }))
                 })
-                
-            }else return res.send(App({ title: 'Search', body: Search({name}), acceptCookies }))
+
+            } else return res.send(App({ title: 'Search', body: Search({ name }), acceptCookies }))
 
         } else res.redirect('/login')
     })
@@ -108,11 +108,11 @@ app.post('/register', urlencodedBodyParser, (req, res) => {
     const { body: { name, surname, username, password } } = req
 
     try {
-        registerUser(name, surname, username, password, (error,) =>{
+        registerUser(name, surname, username, password, (error, ) => {
             if (error) {
                 const { message } = error
                 const { session: { acceptCookies } } = req
-    
+
                 return res.send(App({ title: 'Register', body: Register({ error: message }), acceptCookies }))
             }
             return res.redirect('/login')
@@ -126,6 +126,31 @@ app.post('/register', urlencodedBodyParser, (req, res) => {
 
 app.get('/register', ({ session: { acceptCookies } }, res) => {
     res.send(App({ title: 'Register', body: Register(), acceptCookies }))
+})
+
+app.get('/details/:id', ({ params: { id }, session: { token, acceptCookies, query, username } }, res) => {
+    try {
+        retrieveVehicle(token, id, (error, vehicle) => {
+            debugger
+            if (error) return console.log(error)
+            res.send(App({ title: 'Details', body: Details(vehicle, username, query), acceptCookies }))
+
+        })
+    } catch ({ message }) {
+        console.log(message)
+    }
+
+})
+app.post('/toggle-fav/:id', ({ params: { id }, session: { token, acceptCookies, query, username } }, res) => {
+    try {
+        debugger
+        toggleFavVehicle(token, id, (error) => {
+            if(error) return console.log(error)
+            return res.redirect(`/search/${username}?query=${query}`)
+        })
+    } catch ({ message }) {
+        console.log(message)
+    }
 })
 
 app.post('/accept-cookies', (req, res) => {
