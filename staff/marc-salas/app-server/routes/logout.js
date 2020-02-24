@@ -1,3 +1,3 @@
-module.exports = urlencodedBodyParser, ({ session }, res) => {
+module.exports = ({ session }, res) => {
     session.destroy(() => res.redirect('/login'))
 }

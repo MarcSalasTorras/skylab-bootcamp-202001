@@ -31,11 +31,11 @@ app.post('/login', urlencodedBodyParser, loginPost)
 
 app.get('/search/:username', search)
 
-app.post('/logout', logout)
+app.post('/logout', urlencodedBodyParser, logout)
 
 app.post('/register', registerPost)
 
-app.get('/register', register)
+app.get('/register', urlencodedBodyParser, register)
 
 app.get('/details/:id', details)
 

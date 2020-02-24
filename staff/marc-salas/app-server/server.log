@@ -82851,3 +82851,667 @@ accept-encoding: gzip, deflate
 accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
 cookie: connect.sid=s%3A0kmAwv7aRV3vRTdFKltfyMPh-w3BD9ah.lZHRlkc4u4pnen8wwxkasNXA2Z6bPM1xW2wvpbLhtms
 
+DEBUG 2020-02-24 20:38:00.822 setting up server
+INFO 2020-02-24 20:38:00.851 server up and running on port 8080
+WARN 2020-02-24 20:38:18.341 server abruptly stopped
+DEBUG 2020-02-24 20:38:45.282 setting up server
+INFO 2020-02-24 20:38:45.319 server up and running on port 8080
+INFO 2020-02-24 20:38:49.697 request from ::ffff:192.168.1.238:
+GET / HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+if-none-match: W/"188-GjleqZJumYBvzKEB6E5wE+TPmQE"
+
+INFO 2020-02-24 20:38:54.774 request from ::ffff:192.168.1.238:
+GET /style.css HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/css,*/*;q=0.1
+referer: http://192.168.1.238:8080/
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AMX5vr19tSrY764BKCcNBisaTG0xbsWc8.7KDEGYU0Odj3jZBdJdVzQUFVVaU%2F6wabv9BFszjloy0
+if-none-match: W/"3c7-1706c713908"
+if-modified-since: Sat, 22 Feb 2020 10:28:44 GMT
+
+INFO 2020-02-24 20:39:00.480 request from ::ffff:192.168.1.238:
+POST /accept-cookies HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+content-length: 0
+cache-control: max-age=0
+origin: http://192.168.1.238:8080
+upgrade-insecure-requests: 1
+content-type: application/x-www-form-urlencoded
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AMX5vr19tSrY764BKCcNBisaTG0xbsWc8.7KDEGYU0Odj3jZBdJdVzQUFVVaU%2F6wabv9BFszjloy0
+
+INFO 2020-02-24 20:39:00.516 request from ::ffff:192.168.1.238:
+GET / HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+cache-control: max-age=0
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AMX5vr19tSrY764BKCcNBisaTG0xbsWc8.7KDEGYU0Odj3jZBdJdVzQUFVVaU%2F6wabv9BFszjloy0
+if-none-match: W/"203-FUPEiSHVca3026f0o3IhE+c7IW8"
+
+INFO 2020-02-24 20:39:01.412 request from ::ffff:192.168.1.238:
+GET /style.css HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+if-none-match: W/"3c7-1707836fdd8"
+if-modified-since: Mon, 24 Feb 2020 17:20:34 GMT
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/css,*/*;q=0.1
+referer: http://192.168.1.238:8080/
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AMX5vr19tSrY764BKCcNBisaTG0xbsWc8.7KDEGYU0Odj3jZBdJdVzQUFVVaU%2F6wabv9BFszjloy0
+
+INFO 2020-02-24 20:39:02.853 request from ::ffff:192.168.1.238:
+GET /login HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AMX5vr19tSrY764BKCcNBisaTG0xbsWc8.7KDEGYU0Odj3jZBdJdVzQUFVVaU%2F6wabv9BFszjloy0
+
+INFO 2020-02-24 20:39:02.885 request from ::ffff:192.168.1.238:
+GET /style.css HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+if-none-match: W/"3c7-1707836fdd8"
+if-modified-since: Mon, 24 Feb 2020 17:20:34 GMT
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/css,*/*;q=0.1
+referer: http://192.168.1.238:8080/login
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AMX5vr19tSrY764BKCcNBisaTG0xbsWc8.7KDEGYU0Odj3jZBdJdVzQUFVVaU%2F6wabv9BFszjloy0
+
+INFO 2020-02-24 20:39:05.994 request from ::ffff:192.168.1.238:
+POST /login HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+content-length: 21
+cache-control: max-age=0
+origin: http://192.168.1.238:8080
+upgrade-insecure-requests: 1
+content-type: application/x-www-form-urlencoded
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/login
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AMX5vr19tSrY764BKCcNBisaTG0xbsWc8.7KDEGYU0Odj3jZBdJdVzQUFVVaU%2F6wabv9BFszjloy0
+
+INFO 2020-02-24 20:39:06.180 request from ::ffff:192.168.1.238:
+GET /style.css HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+if-none-match: W/"3c7-1707836fdd8"
+if-modified-since: Mon, 24 Feb 2020 17:20:34 GMT
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/css,*/*;q=0.1
+referer: http://192.168.1.238:8080/login
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AMX5vr19tSrY764BKCcNBisaTG0xbsWc8.7KDEGYU0Odj3jZBdJdVzQUFVVaU%2F6wabv9BFszjloy0
+
+INFO 2020-02-24 20:39:22.682 request from ::ffff:192.168.1.238:
+GET /login HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AMX5vr19tSrY764BKCcNBisaTG0xbsWc8.7KDEGYU0Odj3jZBdJdVzQUFVVaU%2F6wabv9BFszjloy0
+
+INFO 2020-02-24 20:39:22.712 request from ::ffff:192.168.1.238:
+GET /style.css HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/css,*/*;q=0.1
+referer: http://192.168.1.238:8080/login
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AMX5vr19tSrY764BKCcNBisaTG0xbsWc8.7KDEGYU0Odj3jZBdJdVzQUFVVaU%2F6wabv9BFszjloy0
+if-none-match: W/"3c7-1707836fdd8"
+if-modified-since: Mon, 24 Feb 2020 17:20:34 GMT
+
+INFO 2020-02-24 20:39:25.273 request from ::ffff:192.168.1.238:
+GET /register HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/login
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AMX5vr19tSrY764BKCcNBisaTG0xbsWc8.7KDEGYU0Odj3jZBdJdVzQUFVVaU%2F6wabv9BFszjloy0
+
+INFO 2020-02-24 20:39:25.308 request from ::ffff:192.168.1.238:
+GET /style.css HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+if-none-match: W/"3c7-1707836fdd8"
+if-modified-since: Mon, 24 Feb 2020 17:20:34 GMT
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/css,*/*;q=0.1
+referer: http://192.168.1.238:8080/register
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AMX5vr19tSrY764BKCcNBisaTG0xbsWc8.7KDEGYU0Odj3jZBdJdVzQUFVVaU%2F6wabv9BFszjloy0
+
+INFO 2020-02-24 20:39:26.805 request from ::ffff:192.168.1.238:
+GET /login HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/register
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AMX5vr19tSrY764BKCcNBisaTG0xbsWc8.7KDEGYU0Odj3jZBdJdVzQUFVVaU%2F6wabv9BFszjloy0
+if-none-match: W/"289-JFQBRTLDSmoOTyCvM7+8iQTkcEs"
+
+INFO 2020-02-24 20:39:26.841 request from ::ffff:192.168.1.238:
+GET /style.css HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+if-none-match: W/"3c7-1707836fdd8"
+if-modified-since: Mon, 24 Feb 2020 17:20:34 GMT
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/css,*/*;q=0.1
+referer: http://192.168.1.238:8080/login
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AMX5vr19tSrY764BKCcNBisaTG0xbsWc8.7KDEGYU0Odj3jZBdJdVzQUFVVaU%2F6wabv9BFszjloy0
+
+INFO 2020-02-24 20:39:28.899 request from ::ffff:192.168.1.238:
+POST /login HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+content-length: 21
+cache-control: max-age=0
+origin: http://192.168.1.238:8080
+upgrade-insecure-requests: 1
+content-type: application/x-www-form-urlencoded
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/login
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AMX5vr19tSrY764BKCcNBisaTG0xbsWc8.7KDEGYU0Odj3jZBdJdVzQUFVVaU%2F6wabv9BFszjloy0
+
+DEBUG 2020-02-24 20:40:37.539 setting up server
+INFO 2020-02-24 20:40:37.566 server up and running on port 8080
+INFO 2020-02-24 20:40:43.091 request from ::ffff:192.168.1.238:
+GET / HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+purpose: prefetch
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AMX5vr19tSrY764BKCcNBisaTG0xbsWc8.7KDEGYU0Odj3jZBdJdVzQUFVVaU%2F6wabv9BFszjloy0
+if-none-match: W/"188-GjleqZJumYBvzKEB6E5wE+TPmQE"
+
+INFO 2020-02-24 20:40:43.140 request from ::ffff:192.168.1.238:
+GET /style.css HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/css,*/*;q=0.1
+purpose: prefetch
+referer: http://192.168.1.238:8080/
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3Acyx4P938jwq0Uu4RBb3ZPd2eYfMZrYbc.Tm440uYw9h5oaVIPvAQUSFfH2NdTufKS0Z7d1NQFc4s
+if-none-match: W/"3c7-1707836fdd8"
+if-modified-since: Mon, 24 Feb 2020 17:20:34 GMT
+
+INFO 2020-02-24 20:40:44.898 request from ::ffff:192.168.1.238:
+POST /accept-cookies HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+content-length: 0
+cache-control: max-age=0
+origin: http://192.168.1.238:8080
+upgrade-insecure-requests: 1
+content-type: application/x-www-form-urlencoded
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3Acyx4P938jwq0Uu4RBb3ZPd2eYfMZrYbc.Tm440uYw9h5oaVIPvAQUSFfH2NdTufKS0Z7d1NQFc4s
+
+INFO 2020-02-24 20:40:44.917 request from ::ffff:192.168.1.238:
+GET / HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+cache-control: max-age=0
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3Acyx4P938jwq0Uu4RBb3ZPd2eYfMZrYbc.Tm440uYw9h5oaVIPvAQUSFfH2NdTufKS0Z7d1NQFc4s
+if-none-match: W/"203-FUPEiSHVca3026f0o3IhE+c7IW8"
+
+INFO 2020-02-24 20:40:44.952 request from ::ffff:192.168.1.238:
+GET /style.css HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+if-none-match: W/"3c7-1707836fdd8"
+if-modified-since: Mon, 24 Feb 2020 17:20:34 GMT
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/css,*/*;q=0.1
+referer: http://192.168.1.238:8080/
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3Acyx4P938jwq0Uu4RBb3ZPd2eYfMZrYbc.Tm440uYw9h5oaVIPvAQUSFfH2NdTufKS0Z7d1NQFc4s
+
+INFO 2020-02-24 20:40:46.089 request from ::ffff:192.168.1.238:
+GET /login HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3Acyx4P938jwq0Uu4RBb3ZPd2eYfMZrYbc.Tm440uYw9h5oaVIPvAQUSFfH2NdTufKS0Z7d1NQFc4s
+if-none-match: W/"289-JFQBRTLDSmoOTyCvM7+8iQTkcEs"
+
+INFO 2020-02-24 20:40:46.123 request from ::ffff:192.168.1.238:
+GET /style.css HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+if-none-match: W/"3c7-1707836fdd8"
+if-modified-since: Mon, 24 Feb 2020 17:20:34 GMT
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/css,*/*;q=0.1
+referer: http://192.168.1.238:8080/login
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3Acyx4P938jwq0Uu4RBb3ZPd2eYfMZrYbc.Tm440uYw9h5oaVIPvAQUSFfH2NdTufKS0Z7d1NQFc4s
+
+INFO 2020-02-24 20:40:48.185 request from ::ffff:192.168.1.238:
+POST /login HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+content-length: 21
+cache-control: max-age=0
+origin: http://192.168.1.238:8080
+upgrade-insecure-requests: 1
+content-type: application/x-www-form-urlencoded
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/login
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3Acyx4P938jwq0Uu4RBb3ZPd2eYfMZrYbc.Tm440uYw9h5oaVIPvAQUSFfH2NdTufKS0Z7d1NQFc4s
+
+INFO 2020-02-24 20:40:49.820 request from ::ffff:192.168.1.238:
+GET /search/5 HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+cache-control: max-age=0
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/login
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3Acyx4P938jwq0Uu4RBb3ZPd2eYfMZrYbc.Tm440uYw9h5oaVIPvAQUSFfH2NdTufKS0Z7d1NQFc4s
+if-none-match: W/"204-0GhZoN/UVDcKxFvCxdR50cefsOs"
+
+DEBUG 2020-02-24 20:42:26.772 setting up server
+INFO 2020-02-24 20:42:26.810 server up and running on port 8080
+INFO 2020-02-24 20:42:30.994 request from ::ffff:192.168.1.238:
+GET / HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+purpose: prefetch
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3Acyx4P938jwq0Uu4RBb3ZPd2eYfMZrYbc.Tm440uYw9h5oaVIPvAQUSFfH2NdTufKS0Z7d1NQFc4s
+if-none-match: W/"188-GjleqZJumYBvzKEB6E5wE+TPmQE"
+
+INFO 2020-02-24 20:42:31.046 request from ::ffff:192.168.1.238:
+GET /style.css HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/css,*/*;q=0.1
+purpose: prefetch
+referer: http://192.168.1.238:8080/
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AdXXubAIOrM9504WPDSDObG6rIl0VMHqU.Y6oGMW4VeMUEI2X5qyZRq30HRIdrhwMaZwPwIUr9e8Y
+if-none-match: W/"3c7-1707836fdd8"
+if-modified-since: Mon, 24 Feb 2020 17:20:34 GMT
+
+INFO 2020-02-24 20:42:32.459 request from ::ffff:192.168.1.238:
+POST /accept-cookies HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+content-length: 0
+cache-control: max-age=0
+origin: http://192.168.1.238:8080
+upgrade-insecure-requests: 1
+content-type: application/x-www-form-urlencoded
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AdXXubAIOrM9504WPDSDObG6rIl0VMHqU.Y6oGMW4VeMUEI2X5qyZRq30HRIdrhwMaZwPwIUr9e8Y
+
+INFO 2020-02-24 20:42:32.477 request from ::ffff:192.168.1.238:
+GET / HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+cache-control: max-age=0
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AdXXubAIOrM9504WPDSDObG6rIl0VMHqU.Y6oGMW4VeMUEI2X5qyZRq30HRIdrhwMaZwPwIUr9e8Y
+if-none-match: W/"203-FUPEiSHVca3026f0o3IhE+c7IW8"
+
+INFO 2020-02-24 20:42:32.512 request from ::ffff:192.168.1.238:
+GET /style.css HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+if-none-match: W/"3c7-1707836fdd8"
+if-modified-since: Mon, 24 Feb 2020 17:20:34 GMT
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/css,*/*;q=0.1
+referer: http://192.168.1.238:8080/
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AdXXubAIOrM9504WPDSDObG6rIl0VMHqU.Y6oGMW4VeMUEI2X5qyZRq30HRIdrhwMaZwPwIUr9e8Y
+
+INFO 2020-02-24 20:42:33.380 request from ::ffff:192.168.1.238:
+GET /login HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AdXXubAIOrM9504WPDSDObG6rIl0VMHqU.Y6oGMW4VeMUEI2X5qyZRq30HRIdrhwMaZwPwIUr9e8Y
+
+INFO 2020-02-24 20:42:33.409 request from ::ffff:192.168.1.238:
+GET /style.css HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+if-none-match: W/"3c7-1707836fdd8"
+if-modified-since: Mon, 24 Feb 2020 17:20:34 GMT
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/css,*/*;q=0.1
+referer: http://192.168.1.238:8080/login
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AdXXubAIOrM9504WPDSDObG6rIl0VMHqU.Y6oGMW4VeMUEI2X5qyZRq30HRIdrhwMaZwPwIUr9e8Y
+
+INFO 2020-02-24 20:42:36.196 request from ::ffff:192.168.1.238:
+POST /login HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+content-length: 21
+cache-control: max-age=0
+origin: http://192.168.1.238:8080
+upgrade-insecure-requests: 1
+content-type: application/x-www-form-urlencoded
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/login
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AdXXubAIOrM9504WPDSDObG6rIl0VMHqU.Y6oGMW4VeMUEI2X5qyZRq30HRIdrhwMaZwPwIUr9e8Y
+
+INFO 2020-02-24 20:42:37.743 request from ::ffff:192.168.1.238:
+GET /search/5 HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+cache-control: max-age=0
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/login
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AdXXubAIOrM9504WPDSDObG6rIl0VMHqU.Y6oGMW4VeMUEI2X5qyZRq30HRIdrhwMaZwPwIUr9e8Y
+if-none-match: W/"204-0GhZoN/UVDcKxFvCxdR50cefsOs"
+
+INFO 2020-02-24 20:42:38.486 request from ::ffff:192.168.1.238:
+GET /style.css HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+if-none-match: W/"3c7-1707836fdd8"
+if-modified-since: Mon, 24 Feb 2020 17:20:34 GMT
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/css,*/*;q=0.1
+referer: http://192.168.1.238:8080/search/5
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AdXXubAIOrM9504WPDSDObG6rIl0VMHqU.Y6oGMW4VeMUEI2X5qyZRq30HRIdrhwMaZwPwIUr9e8Y
+
+INFO 2020-02-24 20:42:42.414 request from ::ffff:192.168.1.238:
+GET /favorites/5? HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/search/5
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AdXXubAIOrM9504WPDSDObG6rIl0VMHqU.Y6oGMW4VeMUEI2X5qyZRq30HRIdrhwMaZwPwIUr9e8Y
+
+INFO 2020-02-24 20:42:43.661 request from ::ffff:192.168.1.238:
+GET /style.css HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+if-none-match: W/"3c7-1707836fdd8"
+if-modified-since: Mon, 24 Feb 2020 17:20:34 GMT
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/css,*/*;q=0.1
+referer: http://192.168.1.238:8080/favorites/5?
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AdXXubAIOrM9504WPDSDObG6rIl0VMHqU.Y6oGMW4VeMUEI2X5qyZRq30HRIdrhwMaZwPwIUr9e8Y
+
+INFO 2020-02-24 20:42:50.492 request from ::ffff:192.168.1.238:
+GET /search/5?query=mario HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/favorites/5?
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AdXXubAIOrM9504WPDSDObG6rIl0VMHqU.Y6oGMW4VeMUEI2X5qyZRq30HRIdrhwMaZwPwIUr9e8Y
+
+INFO 2020-02-24 20:42:52.828 request from ::ffff:192.168.1.238:
+GET /style.css HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/css,*/*;q=0.1
+referer: http://192.168.1.238:8080/search/5?query=mario
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AdXXubAIOrM9504WPDSDObG6rIl0VMHqU.Y6oGMW4VeMUEI2X5qyZRq30HRIdrhwMaZwPwIUr9e8Y
+if-none-match: W/"3c7-1707836fdd8"
+if-modified-since: Mon, 24 Feb 2020 17:20:34 GMT
+
+INFO 2020-02-24 20:42:56.289 request from ::ffff:192.168.1.238:
+POST /toggle-fav/DHT14 HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+content-length: 0
+cache-control: max-age=0
+origin: http://192.168.1.238:8080
+upgrade-insecure-requests: 1
+content-type: application/x-www-form-urlencoded
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/search/5?query=mario
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AdXXubAIOrM9504WPDSDObG6rIl0VMHqU.Y6oGMW4VeMUEI2X5qyZRq30HRIdrhwMaZwPwIUr9e8Y
+
+INFO 2020-02-24 20:42:57.970 request from ::ffff:192.168.1.238:
+GET /search/5?query=mario HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+cache-control: max-age=0
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/search/5?query=mario
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AdXXubAIOrM9504WPDSDObG6rIl0VMHqU.Y6oGMW4VeMUEI2X5qyZRq30HRIdrhwMaZwPwIUr9e8Y
+if-none-match: W/"1852-n+oXBcEIbuuful4AUr6l+ta7LhQ"
+
+INFO 2020-02-24 20:43:00.239 request from ::ffff:192.168.1.238:
+GET /style.css HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+if-none-match: W/"3c7-1707836fdd8"
+if-modified-since: Mon, 24 Feb 2020 17:20:34 GMT
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/css,*/*;q=0.1
+referer: http://192.168.1.238:8080/search/5?query=mario
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AdXXubAIOrM9504WPDSDObG6rIl0VMHqU.Y6oGMW4VeMUEI2X5qyZRq30HRIdrhwMaZwPwIUr9e8Y
+
+INFO 2020-02-24 20:43:03.866 request from ::ffff:192.168.1.238:
+POST /toggle-fav/DJK68 HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+content-length: 0
+cache-control: max-age=0
+origin: http://192.168.1.238:8080
+upgrade-insecure-requests: 1
+content-type: application/x-www-form-urlencoded
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/search/5?query=mario
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AdXXubAIOrM9504WPDSDObG6rIl0VMHqU.Y6oGMW4VeMUEI2X5qyZRq30HRIdrhwMaZwPwIUr9e8Y
+
+INFO 2020-02-24 20:43:05.131 request from ::ffff:192.168.1.238:
+GET /search/5?query=mario HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+cache-control: max-age=0
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/search/5?query=mario
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AdXXubAIOrM9504WPDSDObG6rIl0VMHqU.Y6oGMW4VeMUEI2X5qyZRq30HRIdrhwMaZwPwIUr9e8Y
+if-none-match: W/"1852-LOJ6oOMylcmFweFfavCidwXujLM"
+
+INFO 2020-02-24 20:43:07.396 request from ::ffff:192.168.1.238:
+GET /style.css HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/css,*/*;q=0.1
+referer: http://192.168.1.238:8080/search/5?query=mario
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AdXXubAIOrM9504WPDSDObG6rIl0VMHqU.Y6oGMW4VeMUEI2X5qyZRq30HRIdrhwMaZwPwIUr9e8Y
+if-none-match: W/"3c7-1707836fdd8"
+if-modified-since: Mon, 24 Feb 2020 17:20:34 GMT
+
+INFO 2020-02-24 20:43:12.831 request from ::ffff:192.168.1.238:
+POST /logout HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+content-length: 0
+cache-control: max-age=0
+origin: http://192.168.1.238:8080
+upgrade-insecure-requests: 1
+content-type: application/x-www-form-urlencoded
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/search/5?query=mario
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AdXXubAIOrM9504WPDSDObG6rIl0VMHqU.Y6oGMW4VeMUEI2X5qyZRq30HRIdrhwMaZwPwIUr9e8Y
+
+INFO 2020-02-24 20:43:12.843 request from ::ffff:192.168.1.238:
+GET /login HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+cache-control: max-age=0
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+referer: http://192.168.1.238:8080/search/5?query=mario
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3AdXXubAIOrM9504WPDSDObG6rIl0VMHqU.Y6oGMW4VeMUEI2X5qyZRq30HRIdrhwMaZwPwIUr9e8Y
+
+INFO 2020-02-24 20:43:12.876 request from ::ffff:192.168.1.238:
+GET /style.css HTTP/1.1
+host: 192.168.1.238:8080
+connection: keep-alive
+if-none-match: W/"3c7-1707836fdd8"
+if-modified-since: Mon, 24 Feb 2020 17:20:34 GMT
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+accept: text/css,*/*;q=0.1
+referer: http://192.168.1.238:8080/login
+accept-encoding: gzip, deflate
+accept-language: es-ES,es;q=0.9,ca-ES;q=0.8,ca;q=0.7,en;q=0.6
+cookie: connect.sid=s%3A-S3k7QP6IFXSnwJ3r9dKyeJAgMUGE3NG.%2BjVUJxPFimbqoRbppTbxU8l81EV65M9hrcKeKPWer%2Fs
+
+WARN 2020-02-24 20:43:28.511 server abruptly stopped

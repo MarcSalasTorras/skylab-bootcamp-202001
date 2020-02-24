@@ -2,7 +2,7 @@ const { registerUser } = require('../logic')
 const { App, Register } = require('../components')
 const { logger } = require('../utils')
 
-module.exports = urlencodedBodyParser, (req, res) => {
+module.exports = (req, res) => {
     const { body: { name, surname, username, password } } = req
 
     try {

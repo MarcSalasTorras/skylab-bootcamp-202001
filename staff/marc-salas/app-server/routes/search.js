@@ -1,5 +1,5 @@
 const { searchVehicles, retrieveUser } = require('../logic')
-const { App, Landing } = require('../components')
+const { App, Search, Landing } = require('../components')
 //const { logger } = require('../utils')
 
 module.exports = (req, res) => {

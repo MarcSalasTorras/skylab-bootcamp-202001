@@ -1,4 +1,4 @@
-const { authenticateUser } = require('../logic')
+const { authenticateUser, retrieveUser } = require('../logic')
 const { App, Login } = require('../components')
 //const { logger } = require('../utils')
 
@@ -15,7 +15,7 @@ module.exports= (req, res) => {
             }
 
             retrieveUser(token, (error, user) => {
-                if (error) {
+                if (error) {    
                     const { message } = error
                     const { session: { acceptCookies } } = req
 
