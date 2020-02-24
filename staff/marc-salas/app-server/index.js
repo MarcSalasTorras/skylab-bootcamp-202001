@@ -1,7 +1,7 @@
 const express = require('express')
 const { logger, loggerMidWare } = require('./utils')
 const path = require('path')
-const { authenticateUser, retrieveUser, registerUser, searchVehicles, retrieveVehicle, toggleFavVehicle } = require('./logic')
+const { authenticateUser, retrieveUser, registerUser, searchVehicles, retrieveVehicle, toggleFavVehicle, retrieveFavorites } = require('./logic')
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const { Login, App, Home, Register, Landing, Search, Details } = require('./components')
@@ -20,7 +20,7 @@ const app = express()
 app.use(loggerMidWare)
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/components', express.static(path.join(__dirname, 'components'))) // NOTE to see sass files in browser
-app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }, resave: false, saveUninitialized: true }))
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 24 * 60 * 60 * 1000 }, resave: false, saveUninitialized: true }))
 
 app.get('/', ({ session: { acceptCookies } }, res) => {
     res.send(App({ title: 'My App', body: Landing(), acceptCookies }))
@@ -29,7 +29,7 @@ app.get('/', ({ session: { acceptCookies } }, res) => {
 app.get('/login', (req, res) => {
     const { session: { username } } = req
 
-    if (username) return res.redirect(`/home/${username}`)
+    if (username) return res.redirect(`/search/${username}`)
 
     const { session: { acceptCookies } } = req
 
@@ -89,13 +89,13 @@ app.get('/search/:username', (req, res) => {
                 searchVehicles(token, _query, (error, vehicles) => {
                     debugger
                     if (error) {
-                        return res.send(App({ title: 'Search', body: Search({ name, error: message, fav: user.fav }), session: { acceptCookies, token } }))
+                        return res.send(App({ title: 'Search', body: Search({ username, error: message, fav: user.fav }), session: { acceptCookies, token } }))
                     }
                     req.session.query = _query
-                    res.send(App({ title: 'Search', body: Search({ name, vehicles }), acceptCookies }))
+                    res.send(App({ title: 'Search', body: Search({ username, vehicles }), acceptCookies }))
                 })
 
-            } else return res.send(App({ title: 'Search', body: Search({ name }), acceptCookies }))
+            } else return res.send(App({ title: 'Search', body: Search({ username }), acceptCookies }))
 
         } else res.redirect('/login')
     })
@@ -142,17 +142,33 @@ app.get('/details/:id', ({ params: { id }, session: { token, acceptCookies, quer
     }
 
 })
-app.post('/toggle-fav/:id', ({ params: { id }, session: { token, acceptCookies, query, username } }, res) => {
+app.post('/toggle-fav/:id', (req , res) => {
+    const { params: { id }, session: { token, acceptCookies, query, username } } = req
+    const _query = req.query.query
     try {
-    
         toggleFavVehicle(token, id, (error) => {
             if(error) return console.log(error)
-            return res.redirect(`/search/${username}?query=${query}`)
+            (_query) return res.redirect(`/search/${username}?query=${query}`)
+            //else return res.redirect(`/favorites/${username}?`)
         })
     } catch ({ message }) {
         console.log(message)
     }
 })
+
+app.get('/favorites/:username', ({ params: { username }, session: { token, acceptCookies }}, res) =>{
+    try{
+        retrieveFavorites(token, (error, favs) =>{
+            if (error) return console.log(error)
+            res.send(App({ title: 'Search', body: Search({ username, vehicles: favs }), acceptCookies }))
+
+        })
+    }catch({message}){
+
+
+    }
+
+} )
 
 app.post('/accept-cookies', (req, res) => {
     const { session } = req

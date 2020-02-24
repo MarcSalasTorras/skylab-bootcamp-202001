@@ -1,10 +1,9 @@
-module.exports = function Item({ item: { id, name, thumbnail, price, isFav }}) {
-    
+module.exports = function Item({ item: { id, name, thumbnail, price, isFav, image }}) {
     return `<li>
     <form action="/details/${id}" method="GET">
         <h3>${name}</h3>
         <button>
-        <img src=${thumbnail}/>
+        <img src="${thumbnail || image}"/>
         </button>
         <span>${price} €</span>
     </form>
