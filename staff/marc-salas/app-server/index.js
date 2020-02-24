@@ -148,7 +148,7 @@ app.post('/toggle-fav/:id', (req , res) => {
     try {
         toggleFavVehicle(token, id, (error) => {
             if(error) return console.log(error)
-            (_query) return res.redirect(`/search/${username}?query=${query}`)
+            res.redirect(`/search/${username}?query=${query}`)
             //else return res.redirect(`/favorites/${username}?`)
         })
     } catch ({ message }) {
