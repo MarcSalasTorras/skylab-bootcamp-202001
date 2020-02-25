@@ -2,7 +2,7 @@ const { call } = require('../utils')
 const atob = require('atob')
 require('../utils/array.prototype.toggle')
 
-module.exports= function toggleFavVehicle(token, id, callback) {
+module.exports = function (token, id, callback) {
     if (typeof token !== 'string') throw new TypeError(`token ${token} is not a string`)
 
     const [header, payload, signature] = token.split('.')
@@ -28,9 +28,9 @@ module.exports= function toggleFavVehicle(token, id, callback) {
 
         if (_error) return callback(new Error(_error))
 
-        const { fav = [] } = user
-        //debugger
-        fav.toggle(id)
+        const { favs = [] } = user
+
+        favs.toggle(id)
 
         call(`https://skylabcoders.herokuapp.com/api/v2/users/`, {
             method: 'PATCH',
@@ -38,7 +38,7 @@ module.exports= function toggleFavVehicle(token, id, callback) {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify({ fav })
+            body: JSON.stringify({ favs })
         }, (error, response) => {
             if (error) return callback(error)
 

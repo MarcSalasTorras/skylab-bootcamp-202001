@@ -1,3 +1,7 @@
+const { retrieveUser } = require('.')
+const { call } = require('../utils')
+require('../specs/specs-helper.js')
+
 describe('retrieveUser', () => {
     let name, surname, username, password, token
 
@@ -49,7 +53,7 @@ describe('retrieveUser', () => {
 
                 const VALID_KEYS = ['name', 'surname', 'username']
                 Object.keys(user).forEach(key => VALID_KEYS.includes(key))
-                
+
                 expect(user.name).toBe(name)
                 expect(user.surname).toBe(surname)
                 expect(user.username).toBe(username)
@@ -59,11 +63,11 @@ describe('retrieveUser', () => {
             })
         )
 
-        it('should fail on invalid token', done => {            
+        it('should fail on invalid token', done => {
             retrieveUser(`${token}-wrong`, error => {
                 expect(error).toBeInstanceOf(Error)
                 expect(error.message).toBe('invalid token')
-    
+
                 done()
             })
         })
@@ -111,7 +115,7 @@ describe('retrieveUser', () => {
         token = 'abc'
 
         expect(() =>
-            retrieveUser(token, () => {})
+            retrieveUser(token, () => { })
         ).toThrowError(Error, 'invalid token')
     })
 

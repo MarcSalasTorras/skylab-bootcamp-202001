@@ -7,7 +7,5 @@ module.exports = {
     registerPost: require('./register-post'),
     acceptCookies: require('./accept-cookies'),
     search: require('./search'),
-    toggleFav: require('./toggle-fav'),
-    details: require('./details'),
-    favorites: require('./favorites')
+    toggleFav: require('./toggle-fav')
 }

@@ -1,7 +1,8 @@
 const { call } = require('../utils')
 const atob = require('atob')
 
-module.exports = function retrieveUser(token, callback) {
+
+module.exports = function (token, callback) {
     if (typeof token !== 'string') throw new TypeError(`token ${token} is not a string`)
 
     const [header, payload, signature] = token.split('.')

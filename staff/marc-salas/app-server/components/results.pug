@@ -1,4 +1,7 @@
-ul(classname="results")
-    each vehicle, item in vehicles
- 
-     //| #{vehicles.map(item => Item ({item}))}
+include item
+
+mixin results(results)
+    ul.results
+        each result in results
+            - const { id, name, isFav, thumbnail, price } = result
+            +item(id, name, isFav, thumbnail, price)

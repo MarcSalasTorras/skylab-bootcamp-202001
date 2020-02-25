@@ -1,4 +1,8 @@
-describe('searchVehicles', () => {
+const { searchVehicles } = require('.')
+const { call } = require('../utils')
+require('../utils/array.prototype.random')
+
+fdescribe('searchVehicles', () => {
     let name, surname, username, password, token, query, ids
 
     const queryIds = {
@@ -129,7 +133,7 @@ describe('searchVehicles', () => {
                         const { favs } = user
 
                         for (const fav of favs)
--                            expect(ids).toContain(fav)
+                            -                            expect(ids).toContain(fav)
 
                         vehicles.forEach(vehicle => {
                             expect(typeof vehicle.id).toBe('string')
@@ -217,4 +221,6 @@ describe('searchVehicles', () => {
             searchVehicles(token, query, {})
         ).toThrowError(TypeError, '[object Object] is not a function')
     })
+
+    // TODO unit test cases for anonymous searches
 })
