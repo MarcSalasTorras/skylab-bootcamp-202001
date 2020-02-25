@@ -1,0 +1,12 @@
+extend app
+
+block body
+    li(classname="detail")
+      h3 #{name}
+      a(href="/search/${username}?query=${query}") GoBack
+      figure
+        img(src="${image}")
+      span #{price} €
+      p Year: #{year}
+      p Description: #{description}
+      a(href="${url}") Link to URL: #{url} 

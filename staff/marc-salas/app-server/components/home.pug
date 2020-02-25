@@ -1,0 +1,8 @@
+    extends app
+    block body
+
+    section
+      h1 Welcome, #{name}!
+      form(action="/logout" method="POST")
+        input(type="hidden" value="${username}" name="username")
+        button Logout

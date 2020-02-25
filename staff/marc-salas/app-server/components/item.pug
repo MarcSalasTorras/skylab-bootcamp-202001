@@ -1,0 +1,9 @@
+li
+    form(action="/details/${id}" method="GET")
+        h3 #{name}
+        button
+            img(src="${thumbnail || image}")
+        span #{price} €
+    form(action="/toggle-fav/${id}" method="POST")
+        button
+            | #{isFav? `5` : `0`}

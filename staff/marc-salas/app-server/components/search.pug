@@ -1,0 +1,14 @@
+extends app
+
+block body
+    h1  Search
+    p  by #{username} 
+    form(action="/logout" method="POST")
+      button  Logeout 
+    form(action="/favorites/#{username}" method="GET")
+      button  Favorites 
+    form(action="/search/#{username}" method="GET")
+      input(type="text" name="query" value="#{query}")
+      button Search
+      unless !vehicles
+        includes results   

@@ -1,5 +1,5 @@
 const Search = require('./search')
-const User = require('./home')
+const Home = require('./home')
 const Results = require('./results')
 
 

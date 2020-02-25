@@ -18,6 +18,9 @@ logger.debug('setting up server')
 
 const app = express()
 
+app.set('view engine', 'pug')
+app.set('views', path.join(__dirname, 'components'))
+
 app.use(loggerMidWare)
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/components', express.static(path.join(__dirname, 'components'))) // NOTE to see sass files in browser
@@ -33,9 +36,9 @@ app.get('/search/:username', search)
 
 app.post('/logout', urlencodedBodyParser, logout)
 
-app.post('/register', registerPost)
+app.post('/register',urlencodedBodyParser, registerPost)
 
-app.get('/register', urlencodedBodyParser, register)
+app.get('/register', register)
 
 app.get('/details/:id', details)
 
