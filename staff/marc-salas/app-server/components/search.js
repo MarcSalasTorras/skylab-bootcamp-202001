@@ -14,7 +14,7 @@ module.exports = function Search(props = {}) {
         <button>Search</button>
         ${error ? `<p>${error}</p>` : ''}
     </form>
-    ${vehicles? Results(vehicles, fav) : ""}
+    ${vehicles? Results({vehicles, fav}) : ""}
     `
 
 }

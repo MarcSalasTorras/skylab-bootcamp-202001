@@ -24,9 +24,12 @@ module.exports= (req, res) => {
 
                 session.token = token
 
-                const { username } = user
-
-                res.redirect(`/search/${username}`)
+                session.save(() => {
+                    const { fav } = session
+                    if (fav) return res.redirect(307, `/toggle-fav/${fav}`)
+    
+                    res.redirect('/')
+                })
             })
         })
     } catch ({ message }) {
