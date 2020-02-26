@@ -6,32 +6,32 @@ module.exports = (req, res) => {
 
     if (token) {
         try {
-            retrieveUser(token, (error, user) => {
-                if (error) {
-                    logger.error(error)
-
-                    res.redirect('/error')
-                }
-
-                const { name, username } = user
-
-                try {
-                    searchVehicles(token, query, (error, vehicles) => {
+            retrieveUser(token)
+            .then((user) => {
+                        // if (error) {
+                        //     logger.error(error)
+        
+                        //     res.redirect('/error')
+                        // }
+                const {name, username} = user
+                try{
+                    searchVehicles(token, query)                    
+                    .then(vehicles =>{
                         const { session: { acceptCookies } } = req
 
-                        if (error) {
-                            logger.error(error)
+                        // if (error) {
+                        //     logger.error(error)
 
-                            res.redirect('/error')
-                        }
+                        //     res.redirect('/error')
+                        // }
 
                         res.render('landing', { name, username, query, results: vehicles, acceptCookies })
                     })
-                } catch (error) {
+                }catch(error){
                     logger.error(error)
 
                     res.redirect('/error')
-                }
+                }       
             })
         } catch (error) {
             logger.error(error)
@@ -40,14 +40,15 @@ module.exports = (req, res) => {
         }
     } else
         try {
-            searchVehicles(undefined, query, (error, vehicles) => {
+            searchVehicles(undefined, query)
+            .then(vehicles => {
                 const { session: { acceptCookies } } = req
 
-                if (error) {
-                    logger.error(error)
+                // if (error) {
+                //     logger.error(error)
 
-                    res.redirect('/error')
-                }
+                //     res.redirect('/error')
+                // }
 
                 res.render('landing', { query, results: vehicles, acceptCookies })
             })

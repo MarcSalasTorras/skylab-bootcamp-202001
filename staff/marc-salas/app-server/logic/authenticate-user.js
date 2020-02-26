@@ -1,7 +1,6 @@
 const { fetch } = require('../utils')
 
 module.exports = function (username, password) {
-    debugger
     if (typeof username !== 'string') throw new TypeError(`username ${username} is not a string`)
     if (typeof password !== 'string') throw new TypeError(`password ${password} is not a string`)
     return fetch(`https://skylabcoders.herokuapp.com/api/v2/users/auth`, {

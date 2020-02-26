@@ -3,19 +3,10 @@ const { logger } = require('../utils')
 
 module.exports = (req, res) => {
     const { body: { username, password }, session } = req
-    debugger
+
     try {
         authenticateUser(username, password)
         .then(token => {
-            // if (error) {
-            //     logger.warn(error)
-
-            //     const { message } = error
-            //     const { session: { acceptCookies } } = req
-
-            //     return res.render('login', { error: message, username, acceptCookies })
-            // }
-
             session.token = token
 
             session.save(() => {

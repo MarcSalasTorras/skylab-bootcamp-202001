@@ -15,12 +15,14 @@ module.exports = (req, res) => {
     }
 
     try {
-        toggleFavVehicle(token, id, error => {
-            if (error) {
-                logger.error(error)
+       
+        toggleFavVehicle(token, id)
+        .then(() => {
+            // if (error) {
+            //     logger.error(error)
 
-                res.redirect('/error')
-            }
+            //     res.redirect('/error')
+            // }
 
             const { referer = req.get('referer') } = session
 
@@ -28,6 +30,8 @@ module.exports = (req, res) => {
             delete session.fav
 
             session.save(() => res.redirect(referer))
+
+            return
         })
     } catch (error) {
         logger.error(error)

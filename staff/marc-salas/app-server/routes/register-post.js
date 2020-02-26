@@ -5,7 +5,7 @@ module.exports = (req, res) => {
     const { body: { name, surname, username, password } } = req
 
     try {
-        debugger
+
         registerUser(name, surname, username, password)
         .then(() => {
             res.redirect('/login')
