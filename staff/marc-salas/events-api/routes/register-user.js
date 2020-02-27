@@ -1,10 +1,9 @@
-const {registetrUser} = require('../logic')
+const {registerUser} = require('../logic')
 
 module.exports= (req, res) => {
     const {body: {name, surname, email, password}} = req
-
     try {
-        registetrUser(name, surname, email, password)
+        registerUser(name, surname, email, password)
         .then(() => res.status(201).end())
         .catch(({message}) =>
             res

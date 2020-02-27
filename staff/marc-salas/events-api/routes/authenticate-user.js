@@ -5,17 +5,17 @@ module.exports = (req, res) =>{
 
     try { 
         authenticateUser(email, password)
-        .then(() => res.status(200).end())
+        .then(token => res.status(200).json({token}))
         .catch(({message}) => {
             res
-                .status(409)
+                .status(401)
                 .json({
                     error: message
                 })
         })
     }catch ({message}) {
         res
-        .status(409)
+        .status(401)
         .json({
             error: message
         })

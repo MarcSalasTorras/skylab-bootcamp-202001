@@ -4,12 +4,13 @@ const {env: {PORT = 8080, NODE_ENV: env}, argv:[, , port = PORT] } = process
 
 const express = require('express')
 const winston = require('winston')
-const {registerUser, authenticateUser} = require('./routes')
+const {registerUser, authenticateUser, retrieveUser} = require('./routes')
 const {name, version} = require('./package')
 const bodyParser = require('body-parser')
-const morgan = require('fs')
+const morgan = require('morgan')
 const fs = require('fs')
 const path = require('path')
+const {tokenParse} = require('./utils')
 
 const logger = winston.createLogger({
     level: env === 'development' ? 'debug' : 'info',
@@ -33,9 +34,11 @@ const app = express()
 
 app.use(morgan('combined', {stream: accessLogStream}))
 
-app.post('/users', jsonBodyParser, authenticateUser)
+app.post('/users', jsonBodyParser, registerUser)
 
-app.post('./users/auth', jsonBodyParser, registerUser)
+app.post('/users/auth', jsonBodyParser, authenticateUser)
+
+app.get('/users', tokenParse, retrieveUser)
 
 app.listen(port, ()=> logger.info(`server ${name} ${version} up and runing on port ${port}`))
 

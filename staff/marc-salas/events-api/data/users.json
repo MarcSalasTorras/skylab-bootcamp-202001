@@ -7,5 +7,23 @@
         "password": "123",
         "created": "2020-02-26T17:42:46.668Z",
         "authenticated": "2020-02-26T17:43:21.095Z"
+    },
+    {
+        "id": "bdc24400-0e1a-401c-bdef-145ab23deb65",
+        "name": "marc",
+        "surname": "Salas",
+        "email": "marcsalas@mail.com",
+        "password": "123",
+        "created": "2020-02-27T07:44:24.338Z",
+        "authenticated": "2020-02-27T09:32:49.950Z"
+    },
+    {
+        "id": "6346f2b5-3d69-4751-8552-00239dc66933",
+        "name": "marc",
+        "surname": "Salas",
+        "email": "marc@mail.com",
+        "password": "123",
+        "created": "2020-02-27T08:39:55.421Z",
+        "authenticated": "2020-02-27T08:40:34.879Z"
     }
 ]
