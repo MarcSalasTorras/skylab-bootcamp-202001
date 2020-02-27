@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
     try{
         if (!authorization) throw new Error('Invalid token')
         const [, token] = authorization.split(' ')
-        const [, payload, signature] = token.split('.')
+        const [, payload] = token.split('.')
         const sub = JSON.parse(atob(payload))
         req.sub = sub.sub
 
