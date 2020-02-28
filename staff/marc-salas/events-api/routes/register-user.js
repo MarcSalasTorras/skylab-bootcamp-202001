@@ -2,17 +2,31 @@ const {registerUser} = require('../logic')
 
 module.exports= (req, res) => {
     const {body: {name, surname, email, password}} = req
+    
     try {
         registerUser(name, surname, email, password)
         .then(() => res.status(201).end())
-        .catch(({message}) =>
+        .catch((error) =>{
+            let status = 400
+
+            if (error instanceof NotAllowedError)
+                status = 409
+            
+            const {message} = error
+
             res
-                .status(409)
-                .json({
-                    error: message
-                })
+                .status(status)
+                .json(message)
+        }
         )
-    }catch ({message}){
+    }catch (error){
+        let status = 400      
+        
+        if (error instanceof ContentError)
+            status = 406
+        
+        const {message} = error
+        
         res
         .status(409)
         .json({
