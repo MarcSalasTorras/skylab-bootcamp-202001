@@ -35,7 +35,7 @@ module.exports = (req, res) => {
         const {message} = error
         
         res
-            .status(409)
+            .status(status)
             .json(message)
     }
 }

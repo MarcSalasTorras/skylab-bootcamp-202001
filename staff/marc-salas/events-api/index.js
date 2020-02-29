@@ -4,13 +4,13 @@ const { env: { PORT = 8080, NODE_ENV: env, MONGODB_URL }, argv: [, , port = PORT
 
 const express = require('express')
 const winston = require('winston')
-const { registerUser, authenticateUser, retrieveUser } = require('./routes')
+const { registerUser, authenticateUser, retrieveUser, createEvent, retrieveUserEvents, retrieveLastUserEvents, suscribe } = require('./routes')
 const { name, version } = require('./package')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const fs = require('fs')
 const path = require('path')
-const { tokenParse } = require('./utils')
+const { tokenParse, jwtVerifierMidWare } = require('./utils')
 const { database } = require('./data')
 
 database.connect(MONGODB_URL)
@@ -42,6 +42,14 @@ database.connect(MONGODB_URL)
         app.post('/users/auth', jsonBodyParser, authenticateUser)
 
         app.get('/users', tokenParse, retrieveUser)
+
+        app.get('/events', jwtVerifierMidWare, retrieveUserEvents )
+
+        app.get('/lastevents', retrieveLastUserEvents )
+
+        app.patch('/users/suscribe', [jwtVerifierMidWare, jsonBodyParser], suscribe)
+
+        app.post('/users/:id/events', [jwtVerifierMidWare, jsonBodyParser], createEvent)
 
         app.listen(port, () => logger.info(`server ${name} ${version} up and runing on port ${port}`))
 

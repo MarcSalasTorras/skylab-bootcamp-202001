@@ -31,8 +31,6 @@ module.exports = (req, res) => {
 
         res
             .status(status)
-            .json({
-                error: message
-            })
+            .json(message)
     }
 }
