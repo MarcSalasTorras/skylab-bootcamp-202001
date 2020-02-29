@@ -1,15 +1,28 @@
-const {validate} = require('../utils')
-const {users} = require('../data')
-
-const fs = require('fs').promises
-const path = require('path')
+const { validate } = require('../utils')
+const { database, database: { ObjectId } } = require('../data')
+const {NotAllowedError} = require('../errors')
 
 module.exports = (sub) => {
     validate.string(sub, 'sub')
 
-    const user = users.find(user => user.id === sub)
-    const {name, surname, email} = user
-    return fs.writeFile(path.join(__dirname, '../data/users.json'), JSON.stringify(users, null, 4))
-    .then(()=> { return {name, surname, email}} )
+    const _id = ObjectId(sub)
 
+    const users = database.collection('users')
+
+    return users.findOne(_id)
+        .then(user =>{
+            if (!user) throw new NotFoundError(`user with id ${id} does not exist`)
+
+            if (user.deactivated) throw new NotAllowedError(`user with id ${id} is deactivated`)
+
+            return users.updateOne({_id}, {$set:  {retrieved: new Date}})
+                .then(() =>{
+                    const {name, surname, email} = user
+
+                    return {name, surname, email}
+                    
+                })
+
+
+        })
 }
