@@ -10,7 +10,6 @@ module.exports = (id) =>{
 
     return events.find({publisher: _id}).toArray()
         .then( event => {
-            //if (!event) throw new NotFoundError(`user with id ${id} does not have any events`)
 
             return event
         })

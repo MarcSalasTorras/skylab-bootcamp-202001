@@ -13,6 +13,7 @@ module.exports = (userId, eventId) => {
 
     return user.findOne({ _id: _userId, suscribedEvents: _eventId })
         .then(user => {
+            
             if (user) throw new Error('user already suscribed')
         })
         .then(() => {
