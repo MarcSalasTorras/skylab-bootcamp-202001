@@ -1,22 +1,25 @@
-const {suscribe} = require('../logic')
+const {updateEvent} = require('../logic')
 const {ContentError} = require('../errors')
 
-module.exports = (req, res) =>{
-    const {payload: {sub : userId}, body: {eventId}} = req
+module.exports = (req, res) => {
+    const {params: {id: eventId}, body, payload: {sub : userId}} = req
 
     try {
-        suscribe(userId, eventId)
+        updateEvent(userId, body, eventId)
         .then(() =>{
             res.status(200).json()
         })
         .catch(error =>{
             let status = 400
+
             const {message} = error
+
             res
             .status(status)
             .json(message)
         })
     } catch (error) {
+
         let status = 400
         
         if (error instanceof ContentError)
@@ -27,5 +30,6 @@ module.exports = (req, res) =>{
         res
             .status(status)
             .json(message)
+
     }
 }
