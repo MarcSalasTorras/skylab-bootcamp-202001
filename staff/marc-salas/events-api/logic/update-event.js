@@ -1,23 +1,16 @@
-const {validate} = require('../utils')
-const {database, database: {ObjectId}} = require('../data')
+const { validate } = require('../utils')
+const { models: { Event } } = require('../data')
 
 module.exports = (userId, body, eventId) => {
     validate.string(userId, 'userId')
     validate.string(eventId, 'eventId')
 
-    const events = database.collection('events')
+    return Event.findOne({ _id: eventId, publisher: userId })
+        .then(event => {
+            if (!event) throw new Error('user has not created this event')
 
-    const _userId = ObjectId(userId)
-    const _eventId = ObjectId(eventId)
+            event.body = body
 
-    return events.findOne({ _id: _eventId, publisher: _userId })
-    .then(event => {
-        console.log(_eventId)
-        console.log(_userId)
-        console.dir(event)
-        if (!event) throw new Error('user has not created this event')
-    })
-    .then(() =>{
-        return events.updateOne({_id: _eventId}, {$set: body})
-    })
+            return event.save()
+        })
 }

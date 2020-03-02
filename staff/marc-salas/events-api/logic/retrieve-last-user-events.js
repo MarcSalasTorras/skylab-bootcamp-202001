@@ -1,10 +1,8 @@
-const { database } = require('../data')
+const {models: {Event}} = require('../data')
 
 module.exports = () =>{
 
-    const events = database.collection('events')
-
-    return events.find().sort({created: -1}).toArray()
+    return Event.find().sort({created: -1}).toArray()
         .then( events => {
     
             return events
