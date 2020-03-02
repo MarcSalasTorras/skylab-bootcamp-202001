@@ -26,18 +26,5 @@ describe('register', () => {
                 expect(user.password).to.equal(password)
             })
     })
-    // describe('user already exist', () => {
-    //     debugger
-    //     registerUser(name, surname, email, password)
-        
-    //     it('should fail if user already exist', () => {
-    //             registerUser(name, surname, email, password)
-    //             .then(()=>{'should not show this'})
-    //             .catch((error) =>{
-    //                 expect(error).to.be.an('error')
-    //             })
-            
-    //     })
 
-    // })
 })
