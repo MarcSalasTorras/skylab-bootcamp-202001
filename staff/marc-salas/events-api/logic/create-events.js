@@ -1,3 +1,4 @@
+const { Types: {ObjectId} } = require('mongoose')
 const { validate } = require('../utils')
 const { models: { Event, User } } = require('../data')
 
@@ -9,9 +10,17 @@ module.exports = (publisher, title, description, location, date) => {
     validate.string(location, 'location')
     validate.type(date, 'date', Date)
 
-    return Event.insertOne(new Event({ publisher: ObjectId(publisher), title, description, location, date }))
-    .then(({insertedId})=>{
-        return User.updateOne({_id: ObjectId(publisher)}, {$push:{createdEvents: insertedId }})
-    }) 
+    return Event.findOne({title})
+    .then(event => {
+        if(event) throw new Error('The event is already created')
+
+        event = new Event({ publisher: ObjectId(publisher), title, description, location, date })
+
+        return event.save()
+    })
+    .then(({_id}) =>{
+        return User.updateOne({_id: ObjectId(publisher)}, {$push:{createdEvents: _id }})
+    })
     .then(()=>{})
+
 }

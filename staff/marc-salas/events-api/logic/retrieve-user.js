@@ -4,15 +4,15 @@ const {NotAllowedError, NotFoundError} = require('../errors')
 module.exports = (sub) => {
     validate.string(sub, 'sub')
 
-    const _id = ObjectId(sub)
+    //const _id = ObjectId(sub)
 
-    return User.findOne(_id)
+    return User.findById(sub)
         .then(user =>{
-            if (!user) throw new NotFoundError(`user with id ${id} does not exist`)
+            if (!user) throw new NotFoundError(`user with id ${sub} does not exist`)
 
-            if (user.deactivated) throw new NotAllowedError(`user with id ${id} is deactivated`)
+            if (user.deactivated) throw new NotAllowedError(`user with id ${sub} is deactivated`)
 
-            user.retrieved = new Data
+            user.retrieved = new Date
 
             return user.save()            
             // return users.updateOne({_id}, {$set:  {retrieved: new Date}})

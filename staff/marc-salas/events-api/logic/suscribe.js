@@ -1,3 +1,4 @@
+const { Types: {ObjectId} } = require('mongoose')
 const { validate } = require('../utils')
 const { models: { User, Event } } = require('../data')
 
@@ -5,20 +6,10 @@ module.exports = (userId, eventId) => {
     validate.string(userId, 'userId')
     validate.string(eventId, 'eventId')
 
-    return User.findOne({ _id: userId, suscribedEvents: eventId })
-        .then(user => {
+    const _eventId = ObjectId(eventId)
+    const _userId = ObjectId(userId)
 
-            if (user) throw new Error('user already suscribed')
-
-            user.suscribedEvents.push(eventId)
-
-            return user.save()
-        })
-        .then(() => {Event.findOne({ _id: eventId })})
-        .then((event) =>{
-            event.suscribed.push(userId)
-
-            return event.save()
-        })
-        .then(() => { })
+    return User.findByIdAndUpdate(userId, {$addToSet: {suscribedEvents: _eventId }})
+        .then(() => Event.findByIdAndUpdate(eventId, {$addToSet: {suscribed: _userId }}))
+        .then(() =>{})
 }

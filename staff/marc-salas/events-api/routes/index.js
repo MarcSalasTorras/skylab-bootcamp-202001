@@ -7,5 +7,6 @@ module.exports = {
     retrieveLastUserEvents: require('./retrieve-last-user-events'),
     suscribe: require('./suscribe'),
     suscribedEvents: require('./suscribed-events'),
-    updateEvent: require('./update-event')
+    updateEvent: require('./update-event'),
+    deleteEvent: require('./delete-event')
 }

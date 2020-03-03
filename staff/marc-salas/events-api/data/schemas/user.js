@@ -1,3 +1,5 @@
+const { Types: {ObjectId} } = require('mongoose')
+
 module.exports = {
     name: {type: String, required: true},
     surname: {type: String, required: true},
@@ -5,6 +7,7 @@ module.exports = {
     password: {type: String, required: true},
     created: {type: Date, default: Date.now},
     authenticated: {type: Date},
-    suscrivedEvents: {type: Array}
+    createdEvents: {type: [ObjectId]},
+    suscribedEvents: {type: [ObjectId]}
 
 }

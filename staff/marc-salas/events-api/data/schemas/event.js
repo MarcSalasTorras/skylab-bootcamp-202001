@@ -7,5 +7,5 @@ module.exports =  new Schema({
     location: {type: String, required: true},
     publisher: {type: ObjectId, required: true, ref: 'User'},
     created: {type: Date, default: Date.now},
-    suscribed: {type: Array,}
+    suscribed: {type: [ObjectId]}
 })
