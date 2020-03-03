@@ -4,6 +4,7 @@ const { NotFoundError, ContentError } = require('../errors')
 module.exports = (req, res) => {
 
     try {
+        console.log('im here')
         retrieveLastUserEvents()
         .then(events =>{
             res.status(200).json(events)

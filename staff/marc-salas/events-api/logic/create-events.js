@@ -10,17 +10,13 @@ module.exports = (publisher, title, description, location, date) => {
     validate.string(location, 'location')
     validate.type(date, 'date', Date)
 
-    return Event.findOne({title})
-    .then(event => {
-        if(event) throw new Error('The event is already created')
-
-        event = new Event({ publisher: ObjectId(publisher), title, description, location, date })
-
-        return event.save()
+    return User.findById(publisher)
+    .then(user => {
+        if (!user) throw new NotFoundError(`user with id ${publisher} not found`)
+        const event = new Event({ publisher, title, description, location, date, created: new Date })
+        user.createdEvents.push(event.id)
+        return Promise.all([user.save(), event.save()])
     })
-    .then(({_id}) =>{
-        return User.updateOne({_id: ObjectId(publisher)}, {$push:{createdEvents: _id }})
-    })
-    .then(()=>{})
+    .then(() => { })
 
 }

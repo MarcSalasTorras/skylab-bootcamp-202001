@@ -14,13 +14,17 @@ module.exports = (sub) => {
 
             user.retrieved = new Date
 
-            return user.save()            
-            // return users.updateOne({_id}, {$set:  {retrieved: new Date}})
-            //     .then(() =>{
-            //         const {name, surname, email} = user
+            user.id = user._id.toString()
+            
+            user.createdEvents.forEach(event =>{
+                event = event.toString()
+            })
 
-            //         return {name, surname, email}
-                    
-            //     })
+            user.suscribedEvents.forEach(event =>{
+                event = event.toString()
+            })
+
+            console.log(user)
+            return user           
         })
 }
