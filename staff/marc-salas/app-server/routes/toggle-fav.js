@@ -1,5 +1,5 @@
 const { toggleFavVehicle } = require('../logic')
-const { logger } = require('../utils')
+const { logger } = require('utils')
 
 module.exports = (req, res) => {
     const { params: { id }, session } = req

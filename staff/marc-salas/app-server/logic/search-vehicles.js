@@ -1,4 +1,4 @@
-const { fetch } = require('../utils')
+const { fetch } = require('utils')
 const atob = require('atob')
 
 module.exports = function (token, query) {

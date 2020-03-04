@@ -1,4 +1,3 @@
-const jwt = require('jsonwebtoken')
 const atob = require('atob')
 
 module.exports = (req, res, next) => {

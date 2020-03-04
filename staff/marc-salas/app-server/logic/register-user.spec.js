@@ -1,5 +1,5 @@
 const { registerUser } = require('.')
-const { call } = require('../utils')
+const { call } = require('utils')
 
 describe('registerUser', () => {
     let name, surname, username, password

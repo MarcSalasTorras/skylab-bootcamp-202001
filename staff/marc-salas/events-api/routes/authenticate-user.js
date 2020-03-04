@@ -1,5 +1,5 @@
 const { authenticateUser } = require('../logic')
-const { NotAllowedError, ContentError} = require('../errors')
+const { NotAllowedError, ContentError} = require('events-errors')
 const jwt = require('jsonwebtoken')
 const { env: { JWT_SECRET,  JWT_EXP } } = process
 

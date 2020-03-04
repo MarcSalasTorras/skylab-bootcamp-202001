@@ -1,18 +1,15 @@
-const { Types: { ObjectId } } = require('mongoose')
-const { validate } = require('../utils')
-const { models: { Event } } = require('../data')
+const { validate } = require('events-utils')
+const { models: { Event } } = require('events-data')
 
 module.exports = (id) => {
     validate.string(id, 'id')
 
-    const _id = ObjectId(id)
-
-    return Event.find({ publisher: _id })
+    return Event.find({ publisher: id })
         .lean()
         .then(events => {
             events.forEach(event => {
-                event.id = event._id.toString()
-                delete event._id
+                event.id = event.id.toString()
+                delete event.id
                 event.publisher = event.publisher.toString()
             })
             return events
