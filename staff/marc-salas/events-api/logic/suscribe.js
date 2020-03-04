@@ -14,10 +14,4 @@ module.exports = (userId, eventId) => {
         return Promise.all([user.save(), event.save()])
     })
     .then(() => { })
-
-
-
-    // return User.findByIdAndUpdate(userId, {$addToSet: {suscribedEvents: _eventId }})
-    //     .then(() => Event.findByIdAndUpdate(eventId, {$addToSet: {suscribed: _userId }}))
-    //     .then(() =>{})
 }

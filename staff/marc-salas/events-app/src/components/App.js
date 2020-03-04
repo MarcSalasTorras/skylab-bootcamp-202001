@@ -1,22 +1,35 @@
 import React, { useState, useEffect } from 'react'
-import Register from './Register'
-import './App.sass'
+import { Register, Login, Home } from './'
+import { registerUser, login, lastEvents } from '../logic'
 
-function App({ name }) {
-  // const [count, setCount] = useState(0)
-  // const [view, setView] = useState('home')
-  // const [hello, setHello] = useState()
+function App() {
+  const [view, setView] = useState('login')
 
-  // function countUp(event) {
-  //   event.preventDefault()
+  const handleRegister = (name, username, email, password) => {
+    registerUser(name, username, email, password)
+      .then(() => {
+        setView('login')
+      })
+  }
+  const handleLogin = (email, password) => {
+    login(email, password)
+      .then((token) => {
+        setView('home')
 
-  //   setCount(count + 1)
-  //   count > 4 && setView('message')
-  // }
+      })
+  }
+  const handleLastEvents = () => {
+    lastEvents()
+      .then(events => {
+        console.log(events)
 
+      })
+  }
 
   return <div className="App">
-    <Register/>
+    {view === 'register' && <Register onSubmit={handleRegister} setView={setView} />}
+    {view === 'login' && <Login onSubmit={handleLogin} setView={setView} />}
+    {view === 'home' && <Home lastEvents={handleLastEvents} />}
   </div>
 }
 
