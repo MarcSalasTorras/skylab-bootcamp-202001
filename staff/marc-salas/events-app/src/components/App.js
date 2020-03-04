@@ -20,20 +20,27 @@ function App() {
   const handleLogin = async(email, password) =>{
     try {
       const response = await login (email, password)
-        console.log(response)
+        
+        console.log(response.token)
 
         setView('home')
     } catch ({message}) {
       console.log(message)
     }
   }
-  const handleLastEvents = () => {
-    lastEvents()
-      .then(events => {
-        console.log(events)
 
-      })
+  const handleLastEvents = async () =>{
+    try {
+      const response = await lastEvents()
+      
+      console.log(response)
+
+    } catch ({message}) {
+      console.log(message)
+    
+    }
   }
+
 
   return <div className="App">
     {view === 'register' && <Register onSubmit={handleRegister} setView={setView}/>}

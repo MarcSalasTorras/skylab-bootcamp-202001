@@ -11,7 +11,7 @@ module.exports = (req, res) => {
             .then(id => {
                 const token = jwt.sign({ sub: id }, JWT_SECRET, { expiresIn: JWT_EXP })
 
-                res.status(200).json({ token })
+                res.status(200).json( {token} )
             })
             .catch((error) => {
                 let status = 400

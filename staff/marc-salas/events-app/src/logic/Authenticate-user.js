@@ -10,11 +10,11 @@ export default (email, password) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
         })
-        console.dir(response)
-        if (response.status === 200) return response.data.token
+        const _response = await response.json()
+        
+        if (response.status === 200) return _response
 
         if (response.status === 409 || response.status === 406){
-            const _response = await response.json()
 
             const error = _response
 
