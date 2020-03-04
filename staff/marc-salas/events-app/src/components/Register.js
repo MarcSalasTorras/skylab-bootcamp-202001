@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 export default function Register({onSubmit, setView}) {
 
     function handleOnSubmit(event){

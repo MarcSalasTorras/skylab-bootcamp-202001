@@ -13,7 +13,7 @@ module.exports = (email, password) => {
 
             user.authenticate = new Date
 
-            return user.save()
+            return user
         })
         .then(({id}) => id)
 
