@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Register, Login, Home } from './'
-import { registerUser, login, lastEvents } from '../logic'
+import { registerUser, authenticateUser, lastEvents } from '../logic'
 
 function App() {
   const [view, setView] = useState('login')
@@ -8,7 +8,7 @@ function App() {
   const handleRegister = async (name, surname, email, password) => {
     
       try {
-        const response = await registerUser(name, surname, email, password)
+        await registerUser(name, surname, email, password)
           setView('login')
   
       } catch ({message}) {
@@ -19,9 +19,11 @@ function App() {
 
   const handleLogin = async(email, password) =>{
     try {
-      const response = await login (email, password)
+      const token = await authenticateUser (email, password)
         
-        console.log(response.token)
+      console.log(token)
+
+        sessionStorage.token = token
 
         setView('home')
     } catch ({message}) {
@@ -40,8 +42,7 @@ function App() {
     
     }
   }
-
-
+  
   return <div className="App">
     {view === 'register' && <Register onSubmit={handleRegister} setView={setView}/>}
     {view === 'login' && <Login onSubmit={handleLogin} setView={setView}/>}

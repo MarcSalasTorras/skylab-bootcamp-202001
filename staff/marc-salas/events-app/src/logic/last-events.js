@@ -6,12 +6,10 @@ export default () =>{
         })
         const _response = await response.json()
 
-        console.log(_response)
-
         if (response.status === 200) return _response
 
         throw new Error(_response)
 
-    })
+    })()
     
 }

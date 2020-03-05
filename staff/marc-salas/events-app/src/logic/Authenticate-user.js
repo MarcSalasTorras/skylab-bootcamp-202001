@@ -12,7 +12,7 @@ export default (email, password) => {
         })
         const _response = await response.json()
         
-        if (response.status === 200) return _response
+        if (response.status === 200) return _response.token
 
         if (response.status === 409 || response.status === 406){
 
