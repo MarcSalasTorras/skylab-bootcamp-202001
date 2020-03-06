@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Login({ onSubmit, setView }) {
+export default function Login({ onSubmit, setPage }) {
     function handleOnSubmit(event) {
         event.preventDefault()
 
@@ -18,7 +18,7 @@ export default function Login({ onSubmit, setView }) {
             <a href="" onClick={event =>{
                 event.preventDefault()
 
-               setView('register') 
+               setPage('register') 
             }}>register</a>
         </form>
     )

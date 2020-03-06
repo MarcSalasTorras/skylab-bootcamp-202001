@@ -1,53 +1,62 @@
-import React, { useState, useEffect } from 'react'
-import { Register, Login, Home } from './'
-import { registerUser, authenticateUser, lastEvents } from '../logic'
+import React, { useState } from 'react'
+import { Register, Login, Home, Page, Results } from './'
+import { registerUser, authenticateUser, lastEvents, retrieveUser } from '../logic'
 
 function App() {
-  const [view, setView] = useState('login')
+  const [page, setPage] = useState('login')
+  const [error, setError] = useState()
+  const [name, setName] = useState()
+  const [response, setResponse] = useState()
+  //const [view, setView] = useState('login')
 
   const handleRegister = async (name, surname, email, password) => {
-    
-      try {
-        await registerUser(name, surname, email, password)
-          setView('login')
-  
-      } catch ({message}) {
 
-        console.log(message)
-      }
-  }
-
-  const handleLogin = async(email, password) =>{
     try {
-      const token = await authenticateUser (email, password)
-        
-      console.log(token)
+      await registerUser(name, surname, email, password)
+      setPage('login')
 
-        sessionStorage.token = token
+    } catch ({ message }) {
 
-        setView('home')
-    } catch ({message}) {
-      console.log(message)
+      setError(message)
     }
   }
 
-  const handleLastEvents = async () =>{
+  const handleLogin = async (email, password) => {
+    try {
+      const token = await authenticateUser(email, password)
+
+      const { name } = await retrieveUser(token)
+
+      sessionStorage.token = token
+
+      setName(name)
+      setPage('home')
+    } catch ({ message }) {
+      setError(message)
+    }
+  }
+
+  const handleLastEvents = async () => {
     try {
       const response = await lastEvents()
-      
-      console.log(response)
 
-    } catch ({message}) {
-      console.log(message)
-    
+      setResponse(response)
+
+    } catch ({ message }) {
+      setError(message)
+
     }
   }
-  
+
   return <div className="App">
-    {view === 'register' && <Register onSubmit={handleRegister} setView={setView}/>}
-    {view === 'login' && <Login onSubmit={handleLogin} setView={setView}/>}
-    {view === 'home' && <Home lastEvents={handleLastEvents}/>}
+    <Page name={page}>
+      {page === 'register' && <Register onSubmit={handleRegister} setPage={setPage} />}
+      {page === 'login' && <Login onSubmit={handleLogin} setPage={setPage} />}
+      {page === 'home' && <Home lastEvents={handleLastEvents} name={name} />}
+      {page === 'home' && response && <Results items={response}/>}
+    </Page>
   </div>
+
 }
 
 export default App

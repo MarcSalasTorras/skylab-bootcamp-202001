@@ -22,7 +22,7 @@ export default (token) => {
 
             throw new Error(_response)
         if (response.status === 403 )
-
+        
             throw new Error(_response)
         if (response.status === 400)
 

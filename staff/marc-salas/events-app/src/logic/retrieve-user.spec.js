@@ -13,12 +13,14 @@ describe('retrieveUser', () => {
         return await User.deleteMany()
     })
     beforeEach(async () => {
+        //debugger
         name = `name-${random()}`
         surname = `surname-${random()}`
         email = `email-${random()}@mail.com`
         password = `password-${random()}`
 
         await User.create(new User({ name, surname, email, password }))
+
         const response = await fetch('http://localhost:8085/users/auth', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -26,13 +28,16 @@ describe('retrieveUser', () => {
         })
         const _response = await response.json()
         token = _response.token
+
     })
     it('should recive the user data', async () => {
-            const userData = await retrieveUser(token)
-             console.dir(userData)
-            // expect(userData).toBeDefined()
-            // expect(typeof userData).toBe('object') 
-        
+        const userData = await retrieveUser(token)
+        expect(userData).toBeDefined()
+        expect(typeof userData).toBe('object')
+        expect(userData.name).toBe(name)
+        expect(userData.surname).toBe(surname)
+        expect(userData.email).toBe(email)
+
     })
     afterAll(async () => {
         await User.deleteMany()
